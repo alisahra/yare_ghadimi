@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/pic">
+        <file>Picture/bridge.png</file>
+        <file>Picture/bullet-007.jpg</file>
+        <file>Picture/explosion_sheet.png</file>
+        <file>Picture/fuel.png</file>
+        <file>Picture/Gauge.png</file>
+        <file>Picture/heli.png</file>
+        <file>Picture/heli1.png</file>
+        <file>Picture/house.png</file>
+        <file>Picture/jet.png</file>
+        <file>Picture/raider_mv.png</file>
+        <file>Picture/raider.png</file>
+        <file>Picture/road.png</file>
+        <file>Picture/Ship.png</file>
+        <file>Picture/tree.png</file>
+    </qresource>
+</RCC>
