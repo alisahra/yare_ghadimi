@@ -15,6 +15,7 @@ BackGround::BackGround()
     // set position
     setPos(0,0);
 
+
     // draw the enemy
     setRect(0,-5,100,610);
     setPen(QPen(Qt::darkGreen));
