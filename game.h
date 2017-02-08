@@ -14,6 +14,7 @@
 #include "level.h"
 
 class Game : public QGraphicsView{
+    bool singelton;
 public:
     Game(QWidget * parent=0);
     QGraphicsScene * scene;
@@ -24,7 +25,8 @@ public:
     BackGround * bgR;
     Level * level;
     Speed * speed;
-
+    void setSingelton(bool exist);
+    bool getSingelton();
 };
 
 #endif // GAME_H

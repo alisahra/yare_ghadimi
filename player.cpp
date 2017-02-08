@@ -12,8 +12,10 @@
 #include "helicopter.h"
 #include "jet.h"
 #include <ctime>
+#include "game.h"
 #include "fuel.h"
 
+extern Game * game;
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
 }
@@ -31,7 +33,7 @@ void myPlayer::keyPressEvent(QKeyEvent *event)
             setPos(x() + 10, y());
             qDebug() << "Going Right";
         }
-    }else if(event->key() == Qt::Key_Space || event->key() == Qt::Key_W){
+    }else if((event->key() == Qt::Key_Space || event->key() == Qt::Key_W) && game->getSingelton()){
         // shot the enemy
         qDebug() << "Shot";
         shot * shoting = new shot();

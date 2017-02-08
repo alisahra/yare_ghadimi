@@ -14,6 +14,7 @@
 extern Game * game;
 
 shot::shot(QGraphicsItem * parent) : QObject(), QGraphicsRectItem(parent) {
+    game->setSingelton(false);
     // draw the player
     setRect(0,0,5,7);
     setPen(QPen(Qt::yellow));
@@ -31,6 +32,7 @@ void shot::move()
     setPos(x(),y()-10);
     if(pos().y() + rect().height() < -5) {
         scene()->removeItem(this);
+        game->setSingelton(true);
         delete this;
         qDebug() << "Shot Deleted";
         return;
@@ -39,16 +41,19 @@ void shot::move()
     // check if any enemy is down
     QList<QGraphicsItem *> collid_items = collidingItems();
     for(int i = 0, n = collid_items.size(); i < n; i++) {
-        if(typeid(*(collid_items[i])) == typeid(Fuel) || typeid(*(collid_items[i])) == typeid(Helicopter) || typeid(*(collid_items[i])) == typeid(Jet) || typeid(*(collid_items[i])) == typeid(Ship)) {
-            // increase score
-            game->score->increase();
-
+        int collid = 0;
+        if(typeid(*(collid_items[i])) == typeid(Ship)){game->score->increase(30); collid++;}
+        else if(typeid(*(collid_items[i])) == typeid(Helicopter)){game->score->increase(60); collid++;}
+        else if(typeid(*(collid_items[i])) == typeid(Fuel)){game->score->increase(80); collid++;} //|| typeid(*(collid_items[i])) == typeid(Helicopter) || typeid(*(collid_items[i])) == typeid(Jet) || typeid(*(collid_items[i])) == typeid(Ship)) {
+        else if(typeid(*(collid_items[i])) == typeid(Jet)){game->score->increase(100); collid++;}
             // remove
+        if(collid){
+            game->setSingelton(true);
             scene()->removeItem(collid_items[i]);
             scene()->removeItem(this);
             delete collid_items[i];
             delete this;
-            qDebug() << "enemy is down!!";
+            qDebug() << "Object is down!!";
             return;
         }
     }

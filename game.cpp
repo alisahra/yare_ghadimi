@@ -3,6 +3,7 @@
 #include <time.h>
 
 Game::Game(QWidget *parent) : QGraphicsView(parent) {
+    singelton = true;
     // create a scene
     scene = new QGraphicsScene();
     setScene(scene);
@@ -50,7 +51,7 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     health = new Health();
     health->setPos(health->x(),health->y() + 30);
     scene->addItem(health);
-    int i = 0;
+    unsigned int i = 0;
 //    while(1){
 //        i++;
 //        if(i%2 == 1){
@@ -80,4 +81,13 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
 
     // show the page
     show();
+}
+void Game::setSingelton(bool exist)
+{
+    singelton = exist;
+    return;
+}
+bool Game::getSingelton()
+{
+    return this->singelton;
 }
