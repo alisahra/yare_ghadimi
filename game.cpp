@@ -62,7 +62,7 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
 
     // spawn the enemies
     QTimer * timerEnemy = new QTimer();
-    QObject::connect(timerEnemy,SIGNAL(timeout()),player,SLOT(enemySpawn()));
+    QObject::connect(timerEnemy,SIGNAL(timeout()),player,SLOT(objectSpawn()));
 
     timerEnemy->start(2500);
 

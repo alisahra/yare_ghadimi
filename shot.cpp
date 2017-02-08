@@ -10,7 +10,7 @@
 #include "helicopter.h"
 #include "ship.h"
 #include "jet.h"
-
+#include "fuel.h"
 extern Game * game;
 
 shot::shot(QGraphicsItem * parent) : QObject(), QGraphicsRectItem(parent) {
@@ -39,7 +39,7 @@ void shot::move()
     // check if any enemy is down
     QList<QGraphicsItem *> collid_items = collidingItems();
     for(int i = 0, n = collid_items.size(); i < n; i++) {
-        if(typeid(*(collid_items[i])) == typeid(Helicopter) || typeid(*(collid_items[i])) == typeid(Jet) || typeid(*(collid_items[i])) == typeid(Ship)) {
+        if(typeid(*(collid_items[i])) == typeid(Fuel) || typeid(*(collid_items[i])) == typeid(Helicopter) || typeid(*(collid_items[i])) == typeid(Jet) || typeid(*(collid_items[i])) == typeid(Ship)) {
             // increase score
             game->score->increase();
 
