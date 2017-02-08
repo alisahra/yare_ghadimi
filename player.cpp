@@ -11,6 +11,8 @@
 #include "ship.h"
 #include "helicopter.h"
 #include "jet.h"
+#include <ctime>
+#include "fuel.h"
 
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
@@ -38,24 +40,29 @@ void myPlayer::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void myPlayer::enemySpawn()
+void myPlayer::objectSpawn()
 {
     // create enemy
     time_t t;
     srand((unsigned) time(&t));
-    int rndEnemy = rand() % 3;
+    int rnd = rand() % 4;
 
-    if (rndEnemy == 0){
+    if (rnd == 0){
         Ship * ship = new Ship();
         scene()->addItem(ship);
     }
-    else if (rndEnemy == 1){
+    else if (rnd == 1){
         Helicopter * helicopter = new Helicopter();
         scene()->addItem(helicopter);
     }
-    else if(rndEnemy == 2){
+    else if(rnd == 2){
         Jet * jet = new Jet();
         scene()->addItem(jet);
+    }
+    else if(rnd == 3)
+    {
+        Fuel * fuel = new Fuel();
+        scene()->addItem(fuel);
     }
 }
 

@@ -10,7 +10,7 @@ public:
     myPlayer(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
 public slots:
-    void enemySpawn();
+    void objectSpawn();
     void thinBgLSpawn();
     void thinBgRSpawn();
     void twoWaysBgSpawn();
