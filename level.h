@@ -5,7 +5,10 @@
 class Level
 {
 public:
-    Level();
+    Level(int a);
+    void setLvl(int a);
+private:
+    int level;
 };
 
 #endif // LEVEL_H

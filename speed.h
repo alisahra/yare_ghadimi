@@ -6,9 +6,10 @@ class Speed
 {
 public:
     Speed();
+    Speed(int a);
     int getSpeed();
     void setSpeed(int a);
-    void increaseSpeed();
+    void increaseSpeed(int a);
 private:
     int speed;
 };

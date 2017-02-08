@@ -1,7 +1,12 @@
 #include "level.h"
 
-Level::Level()
+Level::Level(int a)
 {
+    setLvl(a);
+}
 
+void Level::setLvl(int a)
+{
+    level = a;
 }
 
