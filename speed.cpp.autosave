@@ -7,11 +7,20 @@ Speed::Speed()
 
 Speed::Speed(int a)
 {
-    s
+    setSpeed(a);
 }
 
 int Speed::getSpeed()
 {
-    
+    return speed;
 }
 
+void Speed::setSpeed(int a)
+{
+    speed = a;
+}
+
+void Speed::increaseSpeed(int a)
+{
+    speed += a;
+}

@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     strightbackground.cpp \
     thinbackground.cpp \
     twowaybg.cpp \
-    speed.cpp
+    speed.cpp \
+    level.cpp
 
 HEADERS  += game.h \
     enemy.h \
@@ -41,7 +42,8 @@ HEADERS  += game.h \
     strightbackground.h \
     thinbackground.h \
     twowaybg.h \
-    speed.h
+    speed.h \
+    level.h
 
 FORMS    += game.ui
 
