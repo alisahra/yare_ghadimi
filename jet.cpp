@@ -27,7 +27,7 @@ Jet::Jet()
 
 void Jet::move()
 {
-    setPos(x()+5,y()+2);
+    setPos(x()+5,y()+5);
     if(pos().y() > 650) {
         // decrease health
         game->health->decrease();

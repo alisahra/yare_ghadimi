@@ -2,6 +2,6 @@
 
 Speed::Speed()
 {
-
+    speed = 0;
 }
 

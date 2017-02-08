@@ -28,12 +28,12 @@ Helicopter::Helicopter()
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
     // set timer
-    timer->start(55);
+    timer->start(50);
 }
 
 void Helicopter::move()
 {
-    setPos(x(),y()+2);
+    setPos(x(),y()+5);
     if(pos().y() > 700) {
         // decrease health
         game->health->decrease();

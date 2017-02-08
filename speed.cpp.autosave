@@ -1,0 +1,17 @@
+#include "speed.h"
+
+Speed::Speed()
+{
+    speed = 0;
+}
+
+Speed::Speed(int a)
+{
+    s
+}
+
+int Speed::getSpeed()
+{
+    
+}
+
