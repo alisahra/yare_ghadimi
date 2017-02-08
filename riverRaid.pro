@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     jet.cpp \
     strightbackground.cpp \
     thinbackground.cpp \
-    twowaybg.cpp
+    twowaybg.cpp \
+    speed.cpp
 
 HEADERS  += game.h \
     enemy.h \
@@ -39,7 +40,8 @@ HEADERS  += game.h \
     jet.h \
     strightbackground.h \
     thinbackground.h \
-    twowaybg.h
+    twowaybg.h \
+    speed.h
 
 FORMS    += game.ui
 
