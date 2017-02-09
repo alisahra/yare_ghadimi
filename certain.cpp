@@ -24,7 +24,8 @@ void Certain::on_pushButton_2_clicked()
 
 void Certain::on_pushButton_clicked()
 {
-    game->close();
+    if(game)
+    {game->close();}
     menu->close();
     this->close();
 }

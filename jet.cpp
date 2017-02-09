@@ -30,7 +30,7 @@ void Jet::move()
     setPos(x()+10,y()+5);
     if(pos().y() > 650 || pos().x() > 800) {
         // decrease health
-        game->health->decrease();
+        //game->health->decrease();
         scene()->removeItem(this);
         delete this;
         qDebug() << "jet Deleted";
