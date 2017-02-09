@@ -5,10 +5,6 @@
 #include "thinbackground.h"
 
 Game::Game(QWidget *parent) : QGraphicsView(parent) {
-    zero = 0;
-    one = 1;
-    two = 2;
-    creat = 0;
     singelton = true;
     // create a scene
     scene = new QGraphicsScene();
@@ -19,6 +15,14 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     // set scrolbar
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // health
+    QTimer * hTimer = new QTimer;
+    health = new Health();
+    health->setPos(health->x(),health->y() + 30);
+    QObject::connect(hTimer, SIGNAL(timeout()), health, SLOT(decrease()));
+    scene->addItem(health);
+    hTimer->start(50);
 
     // create item
     player = new myPlayer();
@@ -54,13 +58,6 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     score = new Score();
     scene->addItem(score);
 
-    // health
-    QTimer * hTimer = new QTimer;
-    health = new Health();
-    health->setPos(health->x(),health->y() + 30);
-    QObject::connect(hTimer, SIGNAL(timeout()), health, SLOT(decrease()));
-    scene->addItem(health);
-    hTimer->start(50);
    // unsigned int i = 0;
     timerEnemy = new QTimer();
 

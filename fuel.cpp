@@ -20,7 +20,7 @@ Fuel::Fuel()
         randomPosition += 100;
 
         //set random position
-        setPos(randomPosition,0);
+        setPos(randomPosition,-200);
 
         // draw pic
         setPixmap(QPixmap(":/pic/Picture/fuel.png"));
