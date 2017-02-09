@@ -70,38 +70,14 @@ void myPlayer::objectSpawn()
 
 void myPlayer::thinBgLSpawn()
 {
-    QVector<thinBackGround *> Litems;
-    Litems.resize(11);
-    for(int i = 0; i <= 10; i++) {
-        Litems[i] = new thinBackGround(i);
-        scene()->addItem(Litems[i]);
-    }
+    thinBackGround * item = new thinBackGround();
+    scene()->addItem(item);
 }
 
 void myPlayer::thinBgRSpawn()
 {
-    QVector<thinBackGround *> Ritems;
-    Ritems.resize(11);
-    for(int i = 0; i <= 10; i++) {
-        Ritems[i] = new thinBackGround(i,0);
-        scene()->addItem(Ritems[i]);
-    }
-}
-
-void myPlayer::bgSwapn()
-{
-    time_t t;
-    srand((unsigned) time(&t));
-    int rnd = rand() % 3;
-
-    if(rnd == 0){
-        // create enemy normally
-
-    }else if(rnd == 1){
-        // create thin bg and create enemy base on it
-    }else if(rnd == 2){
-        // create two ways bg and create enemy base on it
-    }
+    thinBackGround * item = new thinBackGround(1);
+    scene()->addItem(item);
 }
 
 void myPlayer::twoWaysBgSpawn()

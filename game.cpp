@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <QDebug>
+#include "thinbackground.h"
 
 Game::Game(QWidget *parent) : QGraphicsView(parent) {
     zero = 0;
@@ -49,10 +50,6 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     QObject::connect(baseBgTimer,SIGNAL(timeout()),bgL,SLOT(checkColl()));
     QObject::connect(baseBgTimer,SIGNAL(timeout()),bgL,SLOT(checkColl()));
     baseBgTimer->start(50);
-
-    player->thinBgLSpawn();
-    player->thinBgRSpawn();
-
     // score
     score = new Score();
     scene->addItem(score);
@@ -64,10 +61,14 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     unsigned int i = 0;
     timerEnemy = new QTimer();
 
-//    QTimer * t = new QTimer();
-//    QObject::connect(t,SIGNAL(timeout()),player,SLOT(creatMap()));
+    QTimer * t = new QTimer();
+    QObject::connect(t,SIGNAL(timeout()),player,SLOT(thinBgLSpawn()));
+    QObject::connect(t,SIGNAL(timeout()),player,SLOT(thinBgRSpawn()));
+    t->start(30000);
 
-//    t->start(2000);
+    QTimer * tw = new QTimer();
+    QObject::connect(tw,SIGNAL(timeout()),player,SLOT(twoWaysBgSpawn()));
+    tw->start(20000);
 
     // show the page
     show();

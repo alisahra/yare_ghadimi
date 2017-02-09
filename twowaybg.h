@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 
-class twoWayBg :public QObject,public QGraphicsRectItem {
+class twoWayBg :public QObject,public QGraphicsPolygonItem {
     Q_OBJECT
 public:
     twoWayBg();

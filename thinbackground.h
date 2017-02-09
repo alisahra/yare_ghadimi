@@ -8,8 +8,8 @@
 class thinBackGround :public QObject,public QGraphicsPolygonItem {
     Q_OBJECT
 public:
-    thinBackGround(int l);
-    thinBackGround(int l,int a);
+    thinBackGround();
+    thinBackGround(int a);
 public slots:
     void move();
     void inclvl();
