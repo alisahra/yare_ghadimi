@@ -47,7 +47,7 @@ void myPlayer::objectSpawn()
     // create enemy
     time_t t;
     srand((unsigned) time(&t));
-    int rnd = rand() % 4;
+    int rnd = rand() % 3;
 
     if (rnd == 0){
         Ship * ship = new Ship();
@@ -61,11 +61,11 @@ void myPlayer::objectSpawn()
         Jet * jet = new Jet();
         scene()->addItem(jet);
     }
-    else if(rnd == 3)
-    {
-        Fuel * fuel = new Fuel();
-        scene()->addItem(fuel);
-    }
+//    else if(rnd == 3)
+//    {
+//        Fuel * fuel = new Fuel();
+//        scene()->addItem(fuel);
+//    }
 }
 
 void myPlayer::thinBgLSpawn()
@@ -85,56 +85,3 @@ void myPlayer::twoWaysBgSpawn()
     twoWayBg * item = new twoWayBg();
     scene()->addItem(item);
 }
-
-//void myPlayer::objectSpawn1()
-//{
-//    // create enemy
-//    time_t t;
-//    srand((unsigned) time(&t));
-//    int rnd = rand() % 4;
-
-//    if (rnd == 0){
-//        Ship * ship = new Ship(1);
-//        scene()->addItem(ship);
-//    }
-//    else if (rnd == 1){
-//        Helicopter * helicopter = new Helicopter(1);
-//        scene()->addItem(helicopter);
-//    }
-//    else if(rnd == 2){
-//        Jet * jet = new Jet();
-//        scene()->addItem(jet);
-//    }
-//    else if(rnd == 3)
-//    {
-//        Fuel * fuel = new Fuel(1);
-//        scene()->addItem(fuel);
-//    }
-//}
-
-//void myPlayer::objectSpawn2()
-//{
-//    // create enemy
-//    time_t t;
-//    srand((unsigned) time(&t));
-//    int rnd = rand() % 4;
-
-//    if (rnd == 0){
-//        Ship * ship = new Ship(2);
-//        scene()->addItem(ship);
-//    }
-//    else if (rnd == 1){
-//        Helicopter * helicopter = new Helicopter(2);
-//        scene()->addItem(helicopter);
-//    }
-//    else if(rnd == 2){
-//        Jet * jet = new Jet();
-//        scene()->addItem(jet);
-//    }
-//    else if(rnd == 3)
-//    {
-//        Fuel * fuel = new Fuel(2);
-//        scene()->addItem(fuel);
-//    }
-//}
-

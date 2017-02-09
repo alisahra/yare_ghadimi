@@ -6,6 +6,8 @@
 #include <QObject>
 #include "game.h"
 #include "menu.h"
+#include "health.h"
+
 Game * game;
 Menu * menu;
 

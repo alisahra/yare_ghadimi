@@ -1,7 +1,8 @@
 #include "health.h"
 #include <QFont>
-
-
+#include "fuel.h"
+#include "game.h"
+extern Game * game;
 
 Health::Health(QGraphicsItem *parent) : QGraphicsTextItem (parent) {
     // initialize score
@@ -25,6 +26,12 @@ void Health::decrease()
 {
     health--;
     setPlainText(QString("Health: ") + QString::number(health));
+}
+
+void Health::fuelSpawn()
+{
+    Fuel * fuel = new Fuel();
+    scene()->addItem(fuel);
 }
 
 int Health::getHealth()

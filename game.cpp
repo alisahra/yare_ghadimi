@@ -9,21 +9,19 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     // create a scene
     scene = new QGraphicsScene();
     setScene(scene);
-    // create a view
-    //QGraphicsView * view = new QGraphicsView(scene);
-
     // set scrolbar
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // health
-    QTimer * hTimer = new QTimer;
+    QTimer * hTimer = new QTimer();
     health = new Health();
-    health->setPos(health->x(),health->y() + 30);
-    QObject::connect(hTimer, SIGNAL(timeout()), health, SLOT(decrease()));
+    health->setPos(health->x()+100,health->y() + 30);
+    QObject::connect(hTimer, SIGNAL(timeout()),health,SLOT(decrease()));
     scene->addItem(health);
     hTimer->start(50);
-
+    QTimer * fuelTimer = new QTimer();
+    QObject::connect(fuelTimer,SIGNAL(timeout()),health,SLOT(fuelSpawn()));
     // create item
     player = new myPlayer();
 
@@ -54,6 +52,7 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     QObject::connect(baseBgTimer,SIGNAL(timeout()),bgL,SLOT(checkColl()));
     QObject::connect(baseBgTimer,SIGNAL(timeout()),bgL,SLOT(checkColl()));
     baseBgTimer->start(50);
+
     // score
     score = new Score();
     scene->addItem(score);

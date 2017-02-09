@@ -3,8 +3,11 @@
 
 
 #include <QGraphicsTextItem>
+#include <QObject>
+#include <QGraphicsPixmapItem>
 
-class Health: public QGraphicsTextItem {
+class Health: public QGraphicsTextItem{
+    Q_OBJECT
 private:
     int health;
 public:
@@ -13,6 +16,7 @@ public:
     int getHealth();
 public slots:
     void decrease();
+    void fuelSpawn();
 };
 
 
