@@ -25,12 +25,12 @@ void myPlayer::keyPressEvent(QKeyEvent *event)
     //qDebug() << "YeS";
     if(event->key() == Qt::Key_Left || event->key() == Qt::Key_A){
         if(pos().x() > 0){
-            setPos(x() - 10, y());
+            setPos(x() - 15, y());
             qDebug() << "Going Left";
         }
     }else if(event->key() == Qt::Key_Right || event->key() == Qt::Key_D){
         if(pos().x() + this->pixmap().width() < scene()->width()){
-            setPos(x() + 10, y());
+            setPos(x() + 15, y());
             qDebug() << "Going Right";
         }
     }else if((event->key() == Qt::Key_Space || event->key() == Qt::Key_W) && game->getSingelton()){

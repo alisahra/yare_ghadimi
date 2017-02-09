@@ -55,10 +55,13 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     scene->addItem(score);
 
     // health
+    QTimer * hTimer = new QTimer;
     health = new Health();
     health->setPos(health->x(),health->y() + 30);
+    QObject::connect(hTimer, SIGNAL(timeout()), health, SLOT(decrease()));
     scene->addItem(health);
-    unsigned int i = 0;
+    hTimer->start(50);
+   // unsigned int i = 0;
     timerEnemy = new QTimer();
 
     QTimer * t = new QTimer();

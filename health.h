@@ -5,13 +5,14 @@
 #include <QGraphicsTextItem>
 
 class Health: public QGraphicsTextItem {
+private:
+    int health;
 public:
     Health(QGraphicsItem * parent=0);
     void increase();
-    void decrease();
     int getHealth();
-private:
-    int health;
+public slots:
+    void decrease();
 };
 
 
