@@ -37,6 +37,7 @@ void Menu::on_pushButton_3_clicked()
     certain->show();
 }
 
+
 void Menu::on_pushButton_2_clicked()
 {
     Buy * buy = new Buy();
