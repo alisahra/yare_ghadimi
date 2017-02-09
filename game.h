@@ -29,9 +29,6 @@ public:
     void setSingelton(bool exist);
     bool getSingelton();
 
-public slots:
-    void creatMap();
-
 private:
     bool singelton;
     int creat;

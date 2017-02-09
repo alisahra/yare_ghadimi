@@ -12,7 +12,6 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     // create a scene
     scene = new QGraphicsScene();
     setScene(scene);
-
     // create a view
     //QGraphicsView * view = new QGraphicsView(scene);
 
@@ -33,6 +32,9 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     // set the scene and view with eachOther
     setFixedSize(800,600);
     scene->setSceneRect(0,0,800,600);
+//    belowScene->setSceneRect(0,600,800,200);
+
+
     setBackgroundBrush(QBrush(Qt::blue));
 
     // set the location of player
@@ -48,6 +50,9 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     QObject::connect(baseBgTimer,SIGNAL(timeout()),bgL,SLOT(checkColl()));
     baseBgTimer->start(50);
 
+    player->thinBgLSpawn();
+    player->thinBgRSpawn();
+
     // score
     score = new Score();
     scene->addItem(score);
@@ -59,18 +64,12 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     unsigned int i = 0;
     timerEnemy = new QTimer();
 
-    QTimer * t = new QTimer();
-    QObject::connect(t,SIGNAL(timeout()),this,SLOT(creatMap()));
+//    QTimer * t = new QTimer();
+//    QObject::connect(t,SIGNAL(timeout()),player,SLOT(creatMap()));
 
-    t->start(2000);
-
-    //QObject::connect(timerBg,SIGNAL(timeout()),player,SLOT(bgLSpawn()));
-    //QObject::connect(timerBg,SIGNAL(timeout()),player,SLOT(bgRSpawn()));
-
-    //timerBg->start(100);
+//    t->start(2000);
 
     // show the page
-
     show();
 }
 
@@ -83,33 +82,4 @@ void Game::setSingelton(bool exist)
 bool Game::getSingelton()
 {
     return this->singelton;
-}
-
-void Game::creatMap()
-{
-        if(creat%4 == 0){
-            timerEnemy->stop();
-            qDebug() << "salam";
-            QObject::connect(timerEnemy,SIGNAL(timeout()),player,SLOT(objectSpawn(zero)));
-            timerEnemy->start(2500);
-
-        }else if(creat%2 == 1) {
-            timerEnemy->stop();
-            qDebug() << "salam nkn";
-            level->incLvl();
-            player->thinBgLSpawn();
-            player->thinBgRSpawn();
-
-            QObject::connect(timerEnemy,SIGNAL(timeout()),player,SLOT(objectSpawn(one)));
-
-            timerEnemy->start(2500);
-
-        }else if(creat%4 == 2){
-            timerEnemy->stop();
-            player->twoWaysBgSpawn();
-            QObject::connect(timerEnemy,SIGNAL(timeout()),player,[player]{ objectSpawn(two); });
-
-            timerEnemy->start(2500);
-        }
-        creat++;
 }

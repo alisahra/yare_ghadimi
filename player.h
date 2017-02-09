@@ -9,11 +9,13 @@ class myPlayer :public QObject,public QGraphicsPixmapItem{
 public:
     myPlayer(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
+    void twoWaysBgSpawn();
     void thinBgLSpawn();
     void thinBgRSpawn();
-    void twoWaysBgSpawn();
 public slots:
-    void objectSpawn(int mov);
+    void objectSpawn();
+    void bgSwapn();
+
 };
 
 #endif // PLAYER_H

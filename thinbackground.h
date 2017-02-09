@@ -1,11 +1,11 @@
 #ifndef THINBACKGROUND_H
 #define THINBACKGROUND_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPolygonItem>
 #include <QObject>
 #include <QGraphicsItem>
 
-class thinBackGround :public QObject,public QGraphicsRectItem {
+class thinBackGround :public QObject,public QGraphicsPolygonItem {
     Q_OBJECT
 public:
     thinBackGround(int l);
