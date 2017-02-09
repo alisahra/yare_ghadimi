@@ -73,6 +73,10 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     QObject::connect(tw,SIGNAL(timeout()),player,SLOT(twoWaysBgSpawn()));
     tw->start(20000);
 
+    QTimer * enemyTimer = new QTimer();
+    QObject::connect(enemyTimer,SIGNAL(timeout()),player,SLOT(objectSpawn()));
+    enemyTimer->start(2000);
+
     // show the page
     show();
 }

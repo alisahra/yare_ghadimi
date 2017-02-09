@@ -4,7 +4,7 @@
 
 class Helicopter : public Enemy{
 public:
-    Helicopter(int mov);
+    Helicopter();
 public slots:
     virtual void move();
 };

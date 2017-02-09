@@ -7,15 +7,16 @@
 #include "game.h"
 #include <typeinfo>
 #include <ctime>
+#include "twowaybg.h"
+#include "thinbackground.h"
 
 extern Game * game;
 
-Ship::Ship(int mov)
+Ship::Ship()
 {
     // 0-> for stright
     // 1-> for thin
     // 2-> for two way
-    if(mov == 0){
         time_t t1;
         srand((unsigned) time(&t1));
         int randomPosition = rand() % 500;
@@ -33,42 +34,6 @@ Ship::Ship(int mov)
 
         // set timer
         timer->start(50);
-    }else if(mov == 1){
-        setPos(375,0);
-
-        // draw pic
-        setPixmap(QPixmap(":/pic/Picture/Ship.png"));
-
-        // connect time and shot
-        QTimer * timer = new QTimer();
-        connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-
-        // set timer
-        timer->start(50);
-
-    }else if(mov == 2){
-        time_t t1;
-        srand((unsigned) time(&t1));
-        int randomPosition = rand() % 200;
-        if(randomPosition < 100){
-            randomPosition += 100;
-        }else if(randomPosition >= 100){
-            randomPosition += 400;
-        }
-
-        //set random position
-        setPos(randomPosition,0);
-
-        // draw pic
-        setPixmap(QPixmap(":/pic/Picture/Ship.png"));
-
-        // connect time and shot
-        QTimer * timer = new QTimer();
-        connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-
-        // set timer
-        timer->start(50);
-    }
 }
 
 void Ship::move()
@@ -92,6 +57,11 @@ void Ship::move()
             delete collid_items[i];
             delete this;
             qDebug() << "Game Over!!";
+            return;
+        }
+        if(typeid(*(collid_items[i])) == typeid(twoWayBg) || typeid(*(collid_items[i])) == typeid(thinBackGround)){
+            scene()->removeItem(this);
+            delete this;
             return;
         }
     }

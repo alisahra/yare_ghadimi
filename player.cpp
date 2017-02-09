@@ -50,11 +50,11 @@ void myPlayer::objectSpawn()
     int rnd = rand() % 4;
 
     if (rnd == 0){
-        Ship * ship = new Ship(0);
+        Ship * ship = new Ship();
         scene()->addItem(ship);
     }
     else if (rnd == 1){
-        Helicopter * helicopter = new Helicopter(0);
+        Helicopter * helicopter = new Helicopter();
         scene()->addItem(helicopter);
     }
     else if(rnd == 2){
@@ -63,7 +63,7 @@ void myPlayer::objectSpawn()
     }
     else if(rnd == 3)
     {
-        Fuel * fuel = new Fuel(0);
+        Fuel * fuel = new Fuel();
         scene()->addItem(fuel);
     }
 }

@@ -7,12 +7,13 @@
 #include "game.h"
 #include <typeinfo>
 #include <ctime>
+#include "twowaybg.h"
+#include "thinbackground.h"
 
 extern Game * game;
 
-Fuel::Fuel(int mov)
+Fuel::Fuel()
 {
-    if(mov == 0){
         time_t t1;
         srand((unsigned) time(&t1));
         int randomPosition = rand() % 500;
@@ -30,42 +31,6 @@ Fuel::Fuel(int mov)
 
         // set timer
         timer->start(50);
-    }else if(mov == 1){
-        setPos(375,0);
-
-        // draw pic
-        setPixmap(QPixmap(":/pic/Picture/fuel.png"));
-
-        // connect time and shot
-        QTimer * timer = new QTimer();
-        connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-
-        // set timer
-        timer->start(50);
-
-    }else if(mov == 2){
-        time_t t1;
-        srand((unsigned) time(&t1));
-        int randomPosition = rand() % 200;
-        if(randomPosition < 100){
-            randomPosition += 100;
-        }else if(randomPosition >= 100){
-            randomPosition += 400;
-        }
-
-        //set random position
-        setPos(randomPosition,0);
-
-        // draw pic
-        setPixmap(QPixmap(":/pic/Picture/fuel.png"));
-
-        // connect time and shot
-        QTimer * timer = new QTimer();
-        connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-
-        // set timer
-        timer->start(50);
-    }
 }
 
 void Fuel::move()
@@ -85,5 +50,11 @@ void Fuel::move()
         if(typeid(*(collid_items[i])) == typeid(myPlayer)) {
             game->health->increase();
         }
+        if(typeid(*(collid_items[i])) == typeid(twoWayBg) || typeid(*(collid_items[i])) == typeid(thinBackGround)){
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
     }
+
 }

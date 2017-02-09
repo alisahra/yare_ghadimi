@@ -55,6 +55,7 @@ void twoWayBg::move()
         }else if(typeid(*(collid_items[i])) == typeid(thinBackGround)){
             scene()->removeItem(this);
             delete this;
+            return;
         }
     }
 }
