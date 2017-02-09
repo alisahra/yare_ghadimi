@@ -47,13 +47,13 @@ void myPlayer::objectSpawn()
     // create enemy
     time_t t;
     srand((unsigned) time(&t));
-    int rnd = rand() % 3;
+    int rnd = rand() % 6;
 
-    if (rnd == 0){
+    if (rnd == 0 || rnd == 3 || rnd == 5){
         Ship * ship = new Ship();
         scene()->addItem(ship);
     }
-    else if (rnd == 1){
+    else if (rnd == 1 || rnd == 4){
         Helicopter * helicopter = new Helicopter();
         scene()->addItem(helicopter);
     }

@@ -36,7 +36,7 @@ Fuel::Fuel()
 void Fuel::move()
 {
     setPos(x(),y()+5);
-    if(pos().y() > 700) {
+    if(pos().y() > 800) {
         // decrease health
         game->health->decrease();
         scene()->removeItem(this);

@@ -22,6 +22,7 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     hTimer->start(50);
     QTimer * fuelTimer = new QTimer();
     QObject::connect(fuelTimer,SIGNAL(timeout()),health,SLOT(fuelSpawn()));
+
     // create item
     player = new myPlayer();
 
