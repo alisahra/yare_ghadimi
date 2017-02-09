@@ -38,7 +38,7 @@ void Helicopter::move()
     setPos(x(),y()+5);
     if(pos().y() > 700) {
         // decrease health
-        game->health->decrease();
+        //game->health->decrease();
         scene()->removeItem(this);
         delete this;
         qDebug() << "Helicopter Deleted";
