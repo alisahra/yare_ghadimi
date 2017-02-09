@@ -42,7 +42,7 @@ void myPlayer::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void myPlayer::objectSpawn()
+void myPlayer::objectSpawn(int mov)
 {
     // create enemy
     time_t t;
@@ -50,11 +50,11 @@ void myPlayer::objectSpawn()
     int rnd = rand() % 4;
 
     if (rnd == 0){
-        Ship * ship = new Ship();
+        Ship * ship = new Ship(mov);
         scene()->addItem(ship);
     }
     else if (rnd == 1){
-        Helicopter * helicopter = new Helicopter();
+        Helicopter * helicopter = new Helicopter(mov);
         scene()->addItem(helicopter);
     }
     else if(rnd == 2){
@@ -63,7 +63,7 @@ void myPlayer::objectSpawn()
     }
     else if(rnd == 3)
     {
-        Fuel * fuel = new Fuel();
+        Fuel * fuel = new Fuel(mov);
         scene()->addItem(fuel);
     }
 }

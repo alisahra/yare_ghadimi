@@ -13,10 +13,10 @@ extern Game * game;
 thinBackGround::thinBackGround(int l)
 {
     // set position
-    setPos(0,-100);
+    setPos(0,-1000);
 
     // draw the enemy
-    setRect(0,-100,100+(24*l),400-(15*l));
+    setRect(0,-1000,100+(24*l),800-(15*l));
     setPen(QPen(Qt::darkGreen));
     setBrush(*new QBrush(Qt::darkGreen));
     //scene->addRect(800-sideGrass,0,sideGrass,5,QPen(Qt::darkGreen),QBrush(Qt::darkGreen));
@@ -30,10 +30,10 @@ thinBackGround::thinBackGround(int l)
 
 thinBackGround::thinBackGround(int l,int a){
     // set position
-    setPos(0,-100);
+    setPos(0,-1000);
 
     // draw the enemy
-    setRect(700-(24*l),-100,100+(24*l),400-(15*l));
+    setRect(700-(24*l),-1000,100+(24*l),800-(15*l));
     setPen(QPen(Qt::darkGreen));
     setBrush(*new QBrush(Qt::darkGreen));
     //scene()->addRect(800-sideGrass,0,sideGrass,5,QPen(Qt::darkGreen),QBrush(Qt::darkGreen));

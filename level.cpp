@@ -10,3 +10,8 @@ void Level::setLvl(int a)
     level = a;
 }
 
+void Level::incLvl()
+{
+    level++;
+}
+

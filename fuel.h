@@ -7,7 +7,7 @@ class Fuel:public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Fuel();
+    Fuel(int mov);
 public slots:
     void move();
 };

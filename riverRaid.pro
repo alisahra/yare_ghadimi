@@ -27,7 +27,11 @@ SOURCES += main.cpp\
     thinbackground.cpp \
     twowaybg.cpp \
     speed.cpp \
-    level.cpp
+    level.cpp \
+    menu.cpp \
+    fuel.cpp \
+    certain.cpp \
+    setting.cpp
 
 HEADERS  += game.h \
     enemy.h \
@@ -43,9 +47,16 @@ HEADERS  += game.h \
     thinbackground.h \
     twowaybg.h \
     speed.h \
-    level.h
+    level.h \
+    menu.h \
+    fuel.h \
+    certain.h \
+    setting.h
 
-FORMS    += game.ui
+FORMS    += game.ui \
+    certain.ui \
+    menu.ui \
+    setting.ui \
 
 RESOURCES += \
     resource.qrc

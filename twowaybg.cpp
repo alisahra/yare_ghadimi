@@ -11,10 +11,10 @@
 twoWayBg::twoWayBg()
 {
     // set position
-    setPos(0,-100);
+    setPos(0,-1000);
 
     // draw the enemy
-    setRect(100,-1000,200,1000);
+    setRect(300,-1000,200,1000);
     setPen(QPen(Qt::darkGreen));
     setBrush(QBrush(Qt::darkGreen));
     //scene->addRect(800-sideGrass,0,sideGrass,5,QPen(Qt::darkGreen),QBrush(Qt::darkGreen));
@@ -29,7 +29,7 @@ twoWayBg::twoWayBg()
 void twoWayBg::move()
 {
     setPos(x(),y()+5);
-    if(pos().y() > 800) {
+    if(pos().y() > 2000) {
         // decrease health
         scene()->removeItem(this);
         delete this;

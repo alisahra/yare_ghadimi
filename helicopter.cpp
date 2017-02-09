@@ -7,28 +7,64 @@
 #include "game.h"
 #include <typeinfo>
 #include <ctime>
+
 extern Game * game;
 
-Helicopter::Helicopter()
-{
+Helicopter::Helicopter(int mov) {
+    if(mov == 0){
+        time_t t1;
+        srand((unsigned) time(&t1));
+        int randomPosition = rand() % 500;
+        randomPosition += 100;
 
-    time_t t1;
-    srand((unsigned) time(&t1));
-    int randomPosition = rand() % 250;
-    randomPosition += 250;
+        //set random position
+        setPos(randomPosition,0);
 
-    //set random position
-    setPos(randomPosition,0);
+        // draw pic
+        setPixmap(QPixmap(":/pic/Picture/heli.png"));
 
-    // draw the enemy
-    setPixmap(QPixmap(":/pic/Picture/heli.png"));
+        // connect time and shot
+        QTimer * timer = new QTimer();
+        connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
-    // connect time and shot
-    QTimer * timer = new QTimer();
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+        // set timer
+        timer->start(50);
+    }else if(mov == 1){
+        setPos(375,0);
 
-    // set timer
-    timer->start(50);
+        // draw pic
+        setPixmap(QPixmap(":/pic/Picture/heli.png"));
+
+        // connect time and shot
+        QTimer * timer = new QTimer();
+        connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+
+        // set timer
+        timer->start(50);
+
+    }else if(mov == 2){
+        time_t t1;
+        srand((unsigned) time(&t1));
+        int randomPosition = rand() % 200;
+        if(randomPosition < 100){
+            randomPosition += 100;
+        }else if(randomPosition >= 100){
+            randomPosition += 400;
+        }
+
+        //set random position
+        setPos(randomPosition,0);
+
+        // draw pic
+        setPixmap(QPixmap(":/pic/Picture/heli.png"));
+
+        // connect time and shot
+        QTimer * timer = new QTimer();
+        connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+
+        // set timer
+        timer->start(50);
+    }
 }
 
 void Helicopter::move()

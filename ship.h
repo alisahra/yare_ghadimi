@@ -5,7 +5,7 @@
 class Ship : public Enemy
 {
 public:
-    Ship();
+    Ship(int mov);
 public slots:
     virtual void move();
 };

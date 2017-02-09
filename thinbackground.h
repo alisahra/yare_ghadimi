@@ -17,5 +17,4 @@ private:
     int lvl = 0;
 };
 
-
 #endif // THINBACKGROUND_H

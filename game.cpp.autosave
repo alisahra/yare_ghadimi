@@ -107,7 +107,8 @@ void Game::creatMap()
         }else if(creat%4 == 2){
             timerEnemy->stop();
             player->twoWaysBgSpawn();
-            QObject::connect(timerEnemy,SIGNAL(timeout()),player,[player]{ objectSpawn(two); });
+
+            QObject::connect(timerEnemy,SIGNAL(timeout()),player,SLOT(objectSpawn(two)));
 
             timerEnemy->start(2500);
         }
