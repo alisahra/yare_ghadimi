@@ -6,13 +6,19 @@
 #include "game.h"
 #include <typeinfo>
 #include "jet.h"
+#include <time.h>
 
 extern Game * game;
 
 Jet::Jet()
 {
+    time_t t1;
+    srand((unsigned) time(&t1));
+    int randomPosition = rand() % 300;
+    randomPosition += 200;
+
     //set position
-    setPos(0,400);
+    setPos(0,randomPosition);
 
     // draw the enemy
     setPixmap(QPixmap(":/pic/Picture/jet.png"));

@@ -1,6 +1,6 @@
 #ifndef SCORE_H
 #define SCORE_H
-
+#include <QWidget>
 #include <QGraphicsTextItem>
 
 class Score: public QGraphicsTextItem {

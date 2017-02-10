@@ -14,6 +14,7 @@ public slots:
     void twoWaysBgSpawn();
     void thinBgLSpawn();
     void thinBgRSpawn();
+    void settingPixmap();
 
 };
 

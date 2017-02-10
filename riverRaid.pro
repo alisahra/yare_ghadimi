@@ -62,5 +62,6 @@ FORMS    += game.ui \
     setting.ui \
     buy.ui \
 
+
 RESOURCES += \
     resource.qrc

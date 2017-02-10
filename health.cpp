@@ -2,6 +2,7 @@
 #include <QFont>
 #include "fuel.h"
 #include "game.h"
+
 extern Game * game;
 
 Health::Health(QGraphicsItem *parent) : QGraphicsTextItem (parent) {
@@ -16,16 +17,21 @@ Health::Health(QGraphicsItem *parent) : QGraphicsTextItem (parent) {
 
 void Health::increase()
 {
-    health += 3;
-    healthIncreased(getHealth());
-    // draw score
-    setPlainText(QString("Health: ") + QString::number(health));
+    if(health < 700){
+        health += 4;
+        healthIncreased(getHealth());
+        // draw score
+        setPlainText(QString("Health: ") + QString::number(health));
+    }
 }
 
 void Health::decrease()
 {
     health--;
     setPlainText(QString("Health: ") + QString::number(health));
+    if(health < 0){
+
+    }
 }
 
 void Health::fuelSpawn()
