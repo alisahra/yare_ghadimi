@@ -24,6 +24,7 @@ public:
     Health * health;
     BackGround * bgL;
     BackGround * bgR;
+    void gameOver();
     void setSingelton(bool exist);
     bool getSingelton();
     // getter/setter LEVEL

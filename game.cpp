@@ -137,3 +137,7 @@ void Game::gamePuase()
     puasepage = new PuasePage();
     puasepage->show();
 }
+void Game::gameOver()
+{
+    delete player;
+}
