@@ -102,7 +102,7 @@ Game::Game(){
 
     QTimer * enemyTimer = new QTimer();
     QObject::connect(enemyTimer,SIGNAL(timeout()),player,SLOT(objectSpawn()));
-    enemyTimer->start(2500);
+    enemyTimer->start(2500-(80*lev));
 
     QTimer * playerTimer = new QTimer();
     QObject::connect(playerTimer,SIGNAL(timeout()),player,SLOT(settingPixmap()));
@@ -112,7 +112,7 @@ Game::Game(){
 
     QTimer * levelT = new QTimer();
     QObject::connect(levelT,SIGNAL(timeout()),this,SLOT(incLevel()));
-    levelT->start(3000);
+    levelT->start(30000);
 
     // show the page
     show();
