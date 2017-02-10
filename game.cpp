@@ -4,8 +4,9 @@
 #include <QDebug>
 #include "thinbackground.h"
 #include <QProgressBar>
-#include "puasepage.h"
- PuasePage * puasepage;
+#include"puasepage.h"
+PuasePage * puasepage;
+
 Game::Game(QWidget *parent) : QGraphicsView(parent) {
     singelton = true;
     // create a scene
