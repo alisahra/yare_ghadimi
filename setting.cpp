@@ -19,8 +19,6 @@ Setting::~Setting()
 void Setting::on_comboBox_activated(const QString &arg1)
 {
     if(arg1 == "EASY") {
-        game = new Game();
-        game->show();
 
         QFile levelF("level.txt");
         levelF.open(QIODevice::WriteOnly);
@@ -28,11 +26,11 @@ void Setting::on_comboBox_activated(const QString &arg1)
         out << 0;
         levelF.close();
 
+        game = new Game();
+        game->show();
         this->close();
     }
     else if(arg1 == "MEDIUM") {
-        game = new Game();
-        game->show();
 
         QFile levelF("level.txt");
         levelF.open(QIODevice::WriteOnly);
@@ -40,11 +38,11 @@ void Setting::on_comboBox_activated(const QString &arg1)
         out << 5;
         levelF.close();
 
+        game = new Game();
+        game->show();
         this->close();
     }
     else if(arg1 == "HARD") {
-        game = new Game();
-        game->show();
 
         QFile levelF("level.txt");
         levelF.open(QIODevice::WriteOnly);
@@ -52,17 +50,21 @@ void Setting::on_comboBox_activated(const QString &arg1)
         out << 10;
         levelF.close();
 
+        game = new Game();
+        game->show();
+
         this->close();
     }
     else if(arg1 == "EXPERT") {
-        game = new Game();
-        game->show();
 
         QFile levelF("level.txt");
         levelF.open(QIODevice::WriteOnly);
         QTextStream out(&levelF);
         out << 20;
         levelF.close();
+
+        game = new Game();
+        game->show();
 
         this->close();
     }

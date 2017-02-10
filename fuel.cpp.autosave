@@ -28,6 +28,7 @@ Fuel::Fuel()
         setPixmap(QPixmap(":/pic/Picture/fuel.png"));
 
         // connect time and shot
+        
         QFile levelF("level.txt");
         QTextStream in(&levelF);
         QString line = in.readLine();

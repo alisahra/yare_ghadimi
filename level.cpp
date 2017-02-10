@@ -11,7 +11,7 @@ Level::Level(int a)
 void Level::setLvl(int a){
     level = a;
     if(level <= 20){
-        speed->setSpeed(a);
+        speed->setSpeed(level);
     }else if(level > 20){
         speed->setSpeed(20);
     }

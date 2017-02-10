@@ -12,6 +12,10 @@ public:
     thinBackGround(int a);
 public slots:
     void move();
+
+signals:
+    void thinBgCreated();
+
 private:
     int speed;
 };

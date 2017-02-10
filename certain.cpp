@@ -5,11 +5,7 @@
 #include "puasepage.h"
 extern Game * game;
 extern Menu * menu;
-<<<<<<< HEAD
-
-=======
 extern PuasePage * puasepage;
->>>>>>> master
 Certain::Certain(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Certain)
