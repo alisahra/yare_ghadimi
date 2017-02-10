@@ -21,6 +21,11 @@ Exit::~Exit()
 void Exit::on_pushButton_clicked()
 {
     this->close();
+}
+
+void Exit::on_pushButton_2_clicked()
+{
+    this->close();
     puasePage->close();
     game->close();
     menu->close();
