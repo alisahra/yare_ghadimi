@@ -28,11 +28,15 @@ Fuel::Fuel()
         setPixmap(QPixmap(":/pic/Picture/fuel.png"));
 
         // connect time and shot
+
         QFile levelF("level.txt");
         QTextStream in(&levelF);
-        QString line = in.readLine();
+        if(!levelF.open(QFile::ReadOnly)){
+            qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+        }
+        QString line = in.readAll();
         speed = line.toInt() + 3;
-        qDebug() << "speed is: " << speed;
+        //qDebug() << "speed is: " <<line;
         levelF.close();
 
         //speed =  3 + (game->getSpeed() / 2);

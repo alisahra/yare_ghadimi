@@ -33,10 +33,13 @@ thinBackGround::thinBackGround(){
 
     QFile levelF("level.txt");
     QTextStream in(&levelF);
-    QString line = in.readLine();
-    speed = (line.toInt()/2) + 3;
+    if(!levelF.open(QFile::ReadOnly)){
+        qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+    }
+    QString line = in.readAll();
+    speed = line.toInt() + 3;
+    //qDebug() << "speed is: " <<line;
     levelF.close();
-
 
     //speed =  3 + (game->getSpeed() / 2);
     QTimer * timer = new QTimer();
@@ -68,8 +71,12 @@ thinBackGround::thinBackGround(int a){
 
     QFile levelF("level.txt");
     QTextStream in(&levelF);
-    QString line = in.readLine();
-    speed = (line.toInt()/2) + 3;
+    if(!levelF.open(QFile::ReadOnly)){
+        qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+    }
+    QString line = in.readAll();
+    speed = line.toInt() + 3;
+    //qDebug() << "speed is: " <<line;
     levelF.close();
 
     //    speed =  3 + (game->getSpeed() / 2);

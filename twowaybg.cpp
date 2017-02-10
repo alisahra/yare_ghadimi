@@ -35,8 +35,12 @@ twoWayBg::twoWayBg()
 
     QFile levelF("level.txt");
     QTextStream in(&levelF);
-    QString line = in.readLine();
-    speed = (line.toInt()/2) + 3;
+    if(!levelF.open(QFile::ReadOnly)){
+        qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+    }
+    QString line = in.readAll();
+    speed = line.toInt() + 3;
+    //qDebug() << "speed is: " <<line;
     levelF.close();
 
 

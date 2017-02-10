@@ -94,7 +94,7 @@ Game::Game(){
 
     QTimer * enemyTimer = new QTimer();
     QObject::connect(enemyTimer,SIGNAL(timeout()),player,SLOT(objectSpawn()));
-    enemyTimer->start(2500-(50*lev));
+    enemyTimer->start(2500-(100*lev));
 
     QTimer * playerTimer = new QTimer();
     QObject::connect(playerTimer,SIGNAL(timeout()),player,SLOT(settingPixmap()));
