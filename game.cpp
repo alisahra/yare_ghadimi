@@ -4,7 +4,8 @@
 #include <QDebug>
 #include "thinbackground.h"
 #include <QProgressBar>
-
+#include "puasepage.h"
+ PuasePage * puasepage;
 Game::Game(QWidget *parent) : QGraphicsView(parent) {
     singelton = true;
     // create a scene
@@ -102,4 +103,9 @@ Level *Game::getLevel() const
 void Game::setLevel(Level *value)
 {
     level = value;
+}
+void Game::gamePuase()
+{
+    puasepage = new PuasePage();
+    puasepage->show();
 }

@@ -18,7 +18,6 @@
 #include "puasepage.h"
 
 extern Game * game;
-extern PuasePage * puasePage;
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
 }
@@ -52,8 +51,7 @@ void myPlayer::keyPressEvent(QKeyEvent *event)
     }
     else if((event->key() == Qt::Key_Escape))
     {
-        puasePage = new PuasePage();
-        puasePage->show();
+        game->gamePuase();
     }
     else
     {

@@ -24,12 +24,15 @@ public:
     Health * health;
     BackGround * bgL;
     BackGround * bgR;
-    Level * level;
-    Speed * speed;
     void setSingelton(bool exist);
     bool getSingelton();
-
+    void gamePuase();
+    Level * getLevel() const;
+    void setLevel(Level *value);
+    
 private:
+    Level * level;
+    Speed * speed;
     bool singelton;
     int creat;
     QTimer * timerBg;

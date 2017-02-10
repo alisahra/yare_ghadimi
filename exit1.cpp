@@ -5,7 +5,7 @@
 #include "puasepage.h"
 #include "gameover.h"
 extern Menu * menu;
-extern Gameover * gameover;
+ Gameover * gameover;
 Exit1::Exit1(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Exit1)
