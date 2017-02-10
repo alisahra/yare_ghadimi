@@ -4,7 +4,7 @@
 #include "game.h"
 #include "exit.h"
 extern Game * game;
-Exit * exit;
+extern Exit * exit;
 PuasePage::PuasePage(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PuasePage)
@@ -28,3 +28,4 @@ void PuasePage::on_pushButton_3_clicked()
     exit = new Exit();
     exit->show();
 }
+

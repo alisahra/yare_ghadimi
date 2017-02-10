@@ -93,3 +93,13 @@ bool Game::getSingelton()
 {
     return this->singelton;
 }
+
+Level *Game::getLevel() const
+{
+    return level;
+}
+
+void Game::setLevel(Level *value)
+{
+    level = value;
+}

@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     buy.cpp \
     gameover.cpp \
     exit1.cpp\
-    puasepage.cpp
+    puasepage.cpp\
+    exit.cpp
 
 HEADERS  += game.h \
     enemy.h \
@@ -59,8 +60,8 @@ HEADERS  += game.h \
     buy.h \
     gameover.h \
     exit1.h\
-    puasepage.h
-
+    puasepage.h\
+    exit.h
 
 FORMS    += game.ui \
     certain.ui \
@@ -69,7 +70,8 @@ FORMS    += game.ui \
     buy.ui \
     gameover.ui \
     exit1.ui\
-    puasepage.ui
+    puasepage.ui\
+    exit.ui
 
 
 RESOURCES += \
