@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "rect.h"
 #include "player.h"
 #include <QApplication>
 #include <QGraphicsScene>
@@ -37,6 +38,7 @@ public:
 
     void gamePuase();
 private:
+    Rect * rectShow;
     Level * level;
     bool singelton;
     int creat;

@@ -54,10 +54,6 @@ void myPlayer::keyPressEvent(QKeyEvent *event)
     {
         game->gamePuase();
     }
-    else
-    {
-        setPixmap(QPixmap(":/pic/Picture/raider.png"));
-    }
 }
 
 void myPlayer::objectSpawn()

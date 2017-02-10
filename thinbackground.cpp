@@ -90,7 +90,7 @@ thinBackGround::thinBackGround(int a){
 void thinBackGround::move()
 {
     setPos(x(),y()+speed);
-    if(pos().y() > 2000) {
+    if(pos().y() > 1300) {
         // decrease health
         scene()->removeItem(this);
         delete this;

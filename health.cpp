@@ -13,6 +13,7 @@ Health::Health(QGraphicsItem *parent) : QGraphicsTextItem (parent) {
     setPlainText(QString("Health: ") + QString::number(health));
     setDefaultTextColor(Qt::red);
     setFont(QFont("times",20));
+    setZValue(2000);
 }
 
 void Health::increase()

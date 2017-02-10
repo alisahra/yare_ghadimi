@@ -30,6 +30,9 @@ Game::Game(){
 
     QFile levelF("level.txt");
     QTextStream in(&levelF);
+    if(!levelF.open(QFile::ReadOnly)){
+        qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+    }
     QString line = in.readLine();
     int lev = line.toInt();
     levelF.close();
@@ -40,7 +43,7 @@ Game::Game(){
     // health
     QTimer * hTimer = new QTimer();
     health = new Health();
-    health->setPos(health->x()+100,health->y() + 30);
+    health->setPos(health->x()+600,health->y() + 555);
     QObject::connect(hTimer, SIGNAL(timeout()),health,SLOT(decrease()));
     scene->addItem(health);
     hTimer->start(100);
@@ -64,12 +67,15 @@ Game::Game(){
     setBackgroundBrush(QBrush(Qt::blue));
 
     // set the location of player
-    player->setPos((width()/2) - (player->pixmap().width()/2) , height() - player->pixmap().height());
+    player->setPos((width()/2) - (player->pixmap().width()/2) , height() - player->pixmap().height() - 40);
 
     bgL = new BackGround();
     scene->addItem(bgL);
     bgR = new BackGround(5);
     scene->addItem(bgR);
+
+    rectShow = new Rect();
+    scene->addItem(rectShow);
 
     QTimer * baseBgTimer = new QTimer();
     QObject::connect(baseBgTimer,SIGNAL(timeout()),bgL,SLOT(checkColl()));
@@ -78,6 +84,7 @@ Game::Game(){
 
     // score
     score = new Score();
+    score->setPos(score->x()+50,score->y() + 555);
     scene->addItem(score);
 
    // unsigned int i = 0;

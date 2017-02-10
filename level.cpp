@@ -20,17 +20,18 @@ void Level::setLvl(int a){
 void Level::incLvl()
 {
     level++;
-    qDebug() << "Level increased";
-    if(level <= 20){
-        speed->setSpeed(level);
-        qDebug() << "Speed increased";
-        qDebug() << level;
-    }
     QFile levelF("level.txt");
-    levelF.open(QIODevice::WriteOnly);
+    if(!levelF.open(QFile::WriteOnly)){
+        qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+    }
     QTextStream out(&levelF);
     out << level;
     levelF.close();
+
+    qDebug() << "Level increased";
+    if(level <= 20){
+        speed->setSpeed(level);
+    }
 }
 
 int Level::getSpeed(){
