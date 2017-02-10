@@ -5,6 +5,7 @@
 
 extern Game * game;
 extern Menu * menu;
+
 Certain::Certain(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Certain)

@@ -23,6 +23,7 @@ private slots:
 
 private:
     Ui::Menu *ui;
+    int p;
 };
 
 #endif // MENU_H

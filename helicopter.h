@@ -7,6 +7,8 @@ public:
     Helicopter();
 public slots:
     virtual void move();
+private:
+    int speed;
 };
 
 #endif // HELICOPTER_H

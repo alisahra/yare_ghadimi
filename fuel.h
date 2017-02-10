@@ -10,6 +10,8 @@ public:
     Fuel();
 public slots:
     void move();
+private:
+    int speed;
 };
 
 #endif // FUEL_H

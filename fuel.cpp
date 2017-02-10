@@ -9,6 +9,8 @@
 #include <ctime>
 #include "twowaybg.h"
 #include "thinbackground.h"
+#include <QFile>
+#include <QTextStream>
 
 extern Game * game;
 
@@ -26,6 +28,13 @@ Fuel::Fuel()
         setPixmap(QPixmap(":/pic/Picture/fuel.png"));
 
         // connect time and shot
+        QFile levelF("level.txt");
+        QTextStream in(&levelF);
+        QString line = in.readLine();
+        speed = (line.toInt()/2) + 3;
+        levelF.close();
+
+        //speed =  3 + (game->getSpeed() / 2);
         QTimer * timer = new QTimer();
         connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -35,8 +44,8 @@ Fuel::Fuel()
 
 void Fuel::move()
 {
-    setPos(x(),y()+5);
-    if(pos().y() > 800) {
+    setPos(x(),y()+speed);
+    if(pos().y() > 900){
         // decrease health
         game->health->decrease();
         scene()->removeItem(this);

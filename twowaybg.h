@@ -14,6 +14,7 @@ public slots:
 private:
     static int randNum;
     static bool changeRandNum;
+    int speed;
 };
 
 

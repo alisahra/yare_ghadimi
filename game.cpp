@@ -4,8 +4,14 @@
 #include <QDebug>
 #include "thinbackground.h"
 #include <QProgressBar>
+//#include <fstream>
+//#include <iostream>
+//#include <string>
+#include <QFile>
 
-Game::Game(QWidget *parent) : QGraphicsView(parent) {
+//using namespace std;
+
+Game::Game(){
     singelton = true;
     // create a scene
     scene = new QGraphicsScene();
@@ -14,6 +20,21 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+//    QString line;
+//    ifstream levelFile ("level.txt");
+//    getline(levelFile,line);
+
+//    int lev = line.toInt();
+
+    QFile levelF("level.txt");
+    QTextStream in(&levelF);
+    QString line = in.readLine();
+    int lev = line.toInt();
+    levelF.close();
+
+    // set level
+    level = new Level(lev);
+
     // health
     QTimer * hTimer = new QTimer();
     health = new Health();
@@ -21,8 +42,6 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     QObject::connect(hTimer, SIGNAL(timeout()),health,SLOT(decrease()));
     scene->addItem(health);
     hTimer->start(100);
-    QTimer * fuelTimer = new QTimer();
-    QObject::connect(fuelTimer,SIGNAL(timeout()),health,SLOT(fuelSpawn()));
 
     // create item
     player = new myPlayer();
@@ -69,15 +88,17 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
 
     QTimer * tw = new QTimer();
     QObject::connect(tw,SIGNAL(timeout()),player,SLOT(twoWaysBgSpawn()));
-    tw->start(20000);
+    tw->start(20000-(100*lev));
 
     QTimer * enemyTimer = new QTimer();
     QObject::connect(enemyTimer,SIGNAL(timeout()),player,SLOT(objectSpawn()));
-    enemyTimer->start(2500);
+    enemyTimer->start(2500-(50*lev));
 
     QTimer * playerTimer = new QTimer();
     QObject::connect(playerTimer,SIGNAL(timeout()),player,SLOT(settingPixmap()));
     playerTimer->start(200);
+
+    QObject::connect(player,SIGNAL(thinBgCreated()),level,SLOT(incLvl()));
 
     // show the page
     show();
@@ -93,3 +114,19 @@ bool Game::getSingelton()
 {
     return this->singelton;
 }
+
+void Game::setLevel(int value)
+{
+    level->setLvl(value);
+}
+
+int Game::getSpeed()
+{
+    return level->getSpeed();
+}
+
+void Game::incLevel()
+{
+    level->incLvl();
+}
+

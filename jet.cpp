@@ -7,7 +7,8 @@
 #include <typeinfo>
 #include "jet.h"
 #include <time.h>
-
+#include <QFile>
+#include <QTextStream>
 extern Game * game;
 
 Jet::Jet()
@@ -24,6 +25,15 @@ Jet::Jet()
     setPixmap(QPixmap(":/pic/Picture/jet.png"));
 
     // connect time and shot
+
+    QFile levelF("level.txt");
+    QTextStream in(&levelF);
+    QString line = in.readLine();
+    speed = (line.toInt()/2) + 3;
+    levelF.close();
+
+
+    //speed =  3 + (game->getSpeed() / 2);
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -33,7 +43,7 @@ Jet::Jet()
 
 void Jet::move()
 {
-    setPos(x()+15,y()+5);
+    setPos(x()+15-(speed/2),y()+speed);
     if(pos().y() > 800 || pos().x() > 800) {
         // decrease health
         //game->health->decrease();

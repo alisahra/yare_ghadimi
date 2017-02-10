@@ -17,6 +17,7 @@ Menu::Menu(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+    p = 0;
     ui->setupUi(this);
 }
 
@@ -42,7 +43,14 @@ void Menu::on_pushButton_3_clicked()
 
 void Menu::on_pushButton_2_clicked()
 {
-    Buy * buy = new Buy();
-    buy->setWindowTitle("Trial Time");
-    buy->show();
+    if(p == 0){
+        p++;
+        Buy * buy = new Buy();
+        buy->setWindowTitle("Trial Time");
+        buy->show();
+    }else{
+        game = new Game();
+        game->show();
+        this->close();
+    }
 }

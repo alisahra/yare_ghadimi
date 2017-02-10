@@ -14,29 +14,32 @@
 #include "level.h"
 #include <QObject>
 
-class Game :public QGraphicsView{
+class Game :public QGraphicsView {
     Q_OBJECT
 public:
-    Game(QWidget * parent=0);
+    Game();
     QGraphicsScene * scene;
     myPlayer * player;
     Score * score;
     Health * health;
     BackGround * bgL;
     BackGround * bgR;
-    Level * level;
-    Speed * speed;
     void setSingelton(bool exist);
     bool getSingelton();
+    // getter/setter LEVEL
+    void setLevel(int value);
+    // getter/setter SPEED
+    int getSpeed();
+
+    // public methods
+    void incLevel();
 
 private:
+    Level * level;
     bool singelton;
     int creat;
     QTimer * timerBg;
     QTimer * timerEnemy;
-    int zero;
-    int one;
-    int two;
 };
 
 #endif // GAME_H

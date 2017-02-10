@@ -16,6 +16,12 @@ public slots:
     void thinBgRSpawn();
     void settingPixmap();
 
+signals:
+    void thinBgCreated();
+
+//private:
+//    int speed;
+
 };
 
 #endif // PLAYER_H

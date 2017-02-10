@@ -8,6 +8,10 @@
 #include "shot.h"
 #include <typeinfo>
 #include "thinbackground.h"
+#include "game.h"
+#include <QFile>
+#include <QTextStream>
+extern Game * game;
 
 twoWayBg::twoWayBg()
 {
@@ -28,6 +32,15 @@ twoWayBg::twoWayBg()
     setBrush(QBrush(Qt::darkGreen));
     //scene->addRect(800-sideGrass,0,sideGrass,5,QPen(Qt::darkGreen),QBrush(Qt::darkGreen));
     // connect time and shot
+
+    QFile levelF("level.txt");
+    QTextStream in(&levelF);
+    QString line = in.readLine();
+    speed = (line.toInt()/2) + 3;
+    levelF.close();
+
+
+    //speed =  3 + (game->getSpeed() / 2);
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -37,7 +50,7 @@ twoWayBg::twoWayBg()
 
 void twoWayBg::move()
 {
-    setPos(x(),y()+5);
+    setPos(x(),y()+speed);
     if(pos().y() > 2500) {
         // decrease health
         scene()->removeItem(this);

@@ -9,7 +9,8 @@
 #include <ctime>
 #include "twowaybg.h"
 #include "thinbackground.h"
-
+#include <QFile>
+#include <QTextStream>
 extern Game * game;
 
 Ship::Ship()
@@ -28,7 +29,15 @@ Ship::Ship()
         // draw pic
         setPixmap(QPixmap(":/pic/Picture/Ship.png"));
 
+        QFile levelF("level.txt");
+        QTextStream in(&levelF);
+        QString line = in.readLine();
+        speed = (line.toInt()/2) + 3;
+        levelF.close();
+
+
         // connect time and shot
+//        speed =  3 + (game->getSpeed() / 2);
         QTimer * timer = new QTimer();
         connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -38,7 +47,7 @@ Ship::Ship()
 
 void Ship::move()
 {
-    setPos(x(),y()+5);
+    setPos(x(),y()+speed);
     if(pos().y() > 700) {
         // decrease health
 //        game->health->decrease();

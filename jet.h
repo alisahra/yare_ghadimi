@@ -8,6 +8,8 @@ public:
     Jet();
 public slots:
     virtual void move();
+private:
+    int speed;
 };
 
 #endif // JET_H

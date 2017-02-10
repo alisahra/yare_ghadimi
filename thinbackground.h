@@ -12,9 +12,8 @@ public:
     thinBackGround(int a);
 public slots:
     void move();
-    void inclvl();
 private:
-    int lvl = 0;
+    int speed;
 };
 
 #endif // THINBACKGROUND_H

@@ -26,12 +26,12 @@ shot::shot(QGraphicsItem * parent) : QObject(), QGraphicsRectItem(parent) {
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
     // set timer
-    timer->start(25);
+    timer->start(5);
 }
 
 void shot::move()
 {
-    setPos(x(),y()-20);
+    setPos(x(),y()-4);
     if(pos().y() + rect().height() < -5) {
         scene()->removeItem(this);
         game->setSingelton(true);

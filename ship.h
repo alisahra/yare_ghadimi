@@ -8,6 +8,9 @@ public:
     Ship();
 public slots:
     virtual void move();
+
+private:
+    int speed;
 };
 
 #endif // SHIP_H

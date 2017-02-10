@@ -20,6 +20,7 @@ extern Game * game;
 
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
+    setZValue(1000);
 }
 
 void myPlayer::keyPressEvent(QKeyEvent *event)
@@ -85,6 +86,7 @@ void myPlayer::thinBgRSpawn()
 {
     thinBackGround * item = new thinBackGround(1);
     scene()->addItem(item);
+    thinBgCreated();
 }
 
 void myPlayer::settingPixmap()

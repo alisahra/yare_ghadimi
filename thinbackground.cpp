@@ -7,7 +7,8 @@
 #include "game.h"
 #include "shot.h"
 #include <typeinfo>
-
+#include <QFile>
+#include <QTextStream>
 extern Game * game;
 
 thinBackGround::thinBackGround(){
@@ -19,6 +20,7 @@ thinBackGround::thinBackGround(){
     setPolygon(hexagon);
     setPen(QPen(Qt::darkGreen));
     setBrush(*new QBrush(Qt::darkGreen));
+
     // set position
 //    setPos(0,-1000);
 
@@ -28,6 +30,15 @@ thinBackGround::thinBackGround(){
 //    setBrush(*new QBrush(Qt::darkGreen));
     //scene->addRect(800-sideGrass,0,sideGrass,5,QPen(Qt::darkGreen),QBrush(Qt::darkGreen));
     // connect time and shot
+
+    QFile levelF("level.txt");
+    QTextStream in(&levelF);
+    QString line = in.readLine();
+    speed = (line.toInt()/2) + 3;
+    levelF.close();
+
+
+    //speed =  3 + (game->getSpeed() / 2);
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -54,6 +65,14 @@ thinBackGround::thinBackGround(int a){
 //    setBrush(*new QBrush(Qt::darkGreen));
     //scene()->addRect(800-sideGrass,0,sideGrass,5,QPen(Qt::darkGreen),QBrush(Qt::darkGreen));
     // connect time and shot
+
+    QFile levelF("level.txt");
+    QTextStream in(&levelF);
+    QString line = in.readLine();
+    speed = (line.toInt()/2) + 3;
+    levelF.close();
+
+    //    speed =  3 + (game->getSpeed() / 2);
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -63,8 +82,7 @@ thinBackGround::thinBackGround(int a){
 
 void thinBackGround::move()
 {
-    lvl++;
-    setPos(x(),y()+5);
+    setPos(x(),y()+speed);
     if(pos().y() > 2000) {
         // decrease health
         scene()->removeItem(this);
@@ -82,8 +100,4 @@ void thinBackGround::move()
             return;
         }
     }
-}
-void thinBackGround::inclvl()
-{
-    lvl++;
 }
