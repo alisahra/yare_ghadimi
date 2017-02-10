@@ -20,6 +20,7 @@
 extern Game * game;
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
+    setZValue(1000);
 }
 
 void myPlayer::keyPressEvent(QKeyEvent *event)
