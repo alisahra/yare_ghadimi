@@ -4,8 +4,10 @@
 #include "menu.h"
 #include "puasepage.h"
 #include "gameover.h"
+
 extern Menu * menu;
 extern Gameover * gameover;
+
 Exit1::Exit1(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Exit1)
@@ -25,7 +27,7 @@ void Exit1::on_pushButton_clicked()
 
 void Exit1::on_pushButton_2_clicked()
 {
-    this->close();
-    gameover->close();
     menu->close();
+    //gameover->close();
+    this->close();
 }

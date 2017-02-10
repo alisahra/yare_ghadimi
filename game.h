@@ -25,7 +25,6 @@ public:
     Health * health;
     BackGround * bgL;
     BackGround * bgR;
-    void gameOver();
     void setSingelton(bool exist);
     bool getSingelton();
     // getter/setter LEVEL
@@ -34,9 +33,11 @@ public:
     int getSpeed();
 
     // public methods
-    void incLevel();
 
     void gamePuase();
+    void gameOver();
+public slots:
+    void incLevel();
 private:
     Rect * rectShow;
     Level * level;

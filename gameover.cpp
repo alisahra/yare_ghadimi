@@ -2,8 +2,10 @@
 #include "ui_gameover.h"
 #include "exit1.h"
 #include "game.h"
+
 extern Game * game;
 Exit1 * exit1;
+
 Gameover::Gameover(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Gameover)

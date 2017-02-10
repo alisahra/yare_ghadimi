@@ -9,6 +9,7 @@
 //#include <string>
 #include <QFile>
 #include"puasepage.h"
+
 PuasePage * puasepage;
 
 //using namespace std;
@@ -93,11 +94,11 @@ Game::Game(){
     QTimer * t = new QTimer();
     QObject::connect(t,SIGNAL(timeout()),player,SLOT(thinBgLSpawn()));
     QObject::connect(t,SIGNAL(timeout()),player,SLOT(thinBgRSpawn()));
-    t->start(30000);
+    t->start(30000+(30*lev));
 
     QTimer * tw = new QTimer();
     QObject::connect(tw,SIGNAL(timeout()),player,SLOT(twoWaysBgSpawn()));
-    tw->start(20000-(100*lev));
+    tw->start(20000-(1000*lev));
 
     QTimer * enemyTimer = new QTimer();
     QObject::connect(enemyTimer,SIGNAL(timeout()),player,SLOT(objectSpawn()));
@@ -107,7 +108,11 @@ Game::Game(){
     QObject::connect(playerTimer,SIGNAL(timeout()),player,SLOT(settingPixmap()));
     playerTimer->start(200);
 
-    QObject::connect(player,SIGNAL(thinBgCreated()),level,SLOT(incLvl()));
+//    QObject::connect(player,SIGNAL(thinBgCreated()),level,SLOT(incLvl()));
+
+    QTimer * levelT = new QTimer();
+    QObject::connect(levelT,SIGNAL(timeout()),this,SLOT(incLevel()));
+    levelT->start(30000+(30*lev));
 
     // show the page
     show();
@@ -144,6 +149,7 @@ void Game::gamePuase()
     puasepage = new PuasePage();
     puasepage->show();
 }
+
 void Game::gameOver()
 {
     delete player;

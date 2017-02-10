@@ -101,7 +101,6 @@ void myPlayer::thinBgRSpawn()
     scene()->addItem(bridge);
     thinBackGround * item = new thinBackGround(1);
     scene()->addItem(item);
-    thinBgCreated();
 }
 
 void myPlayer::settingPixmap()

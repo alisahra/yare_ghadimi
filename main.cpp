@@ -7,9 +7,12 @@
 #include "game.h"
 #include "menu.h"
 #include "health.h"
+#include "gameover.h"
 
 Game * game;
 Menu * menu;
+Gameover * gameOver;
+
 
 int main(int argc, char *argv[])
 {
