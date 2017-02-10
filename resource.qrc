@@ -14,5 +14,6 @@
         <file>Picture/road.png</file>
         <file>Picture/Ship.png</file>
         <file>Picture/tree.png</file>
+        <file>Picture/image.jpg</file>
     </qresource>
 </RCC>

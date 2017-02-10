@@ -17,6 +17,8 @@ public:
 public slots:
     void decrease();
     void fuelSpawn();
+signals:
+    void healthIncreased(int a);
 };
 
 

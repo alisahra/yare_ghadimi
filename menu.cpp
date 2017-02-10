@@ -3,7 +3,9 @@
 #include "game.h"
 #include "setting.h"
 #include "certain.h"
+
 extern Game * game;
+
 Setting * setting;
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),

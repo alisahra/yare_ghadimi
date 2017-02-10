@@ -3,6 +3,7 @@
 #include <time.h>
 #include <QDebug>
 #include "thinbackground.h"
+#include <QProgressBar>
 
 Game::Game(QWidget *parent) : QGraphicsView(parent) {
     singelton = true;
@@ -23,6 +24,12 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
     QTimer * fuelTimer = new QTimer();
     QObject::connect(fuelTimer,SIGNAL(timeout()),health,SLOT(fuelSpawn()));
 
+    QProgressBar * healthBar = new QProgressBar();
+    healthBar->setRange(0, 700);
+    healthBar->setFormat("%v%");
+    healthBar->setValue(700);
+    QObject::connect(health,SIGNAL(healthIncreased(int)),healthBar,SLOT(setValue(int)));
+    //scene->addItem(healthBar);
     // create item
     player = new myPlayer();
 
@@ -72,7 +79,7 @@ Game::Game(QWidget *parent) : QGraphicsView(parent) {
 
     QTimer * enemyTimer = new QTimer();
     QObject::connect(enemyTimer,SIGNAL(timeout()),player,SLOT(objectSpawn()));
-    enemyTimer->start(2000);
+    enemyTimer->start(2500);
 
     // show the page
     show();

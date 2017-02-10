@@ -12,7 +12,7 @@ extern Game * game;
 Jet::Jet()
 {
     //set position
-    setPos(200,0);
+    setPos(0,400);
 
     // draw the enemy
     setPixmap(QPixmap(":/pic/Picture/jet.png"));
@@ -27,8 +27,8 @@ Jet::Jet()
 
 void Jet::move()
 {
-    setPos(x()+10,y()+5);
-    if(pos().y() > 650 || pos().x() > 800) {
+    setPos(x()+15,y()+5);
+    if(pos().y() > 800 || pos().x() > 800) {
         // decrease health
         //game->health->decrease();
         scene()->removeItem(this);

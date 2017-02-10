@@ -22,6 +22,5 @@ void Buy::on_pushButton_2_clicked()
 void Buy::on_pushButton_clicked()
 {
     QString link = "http://payline.ir/";
-
     QDesktopServices::openUrl(QUrl(link));
 }

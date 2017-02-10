@@ -16,6 +16,7 @@
 #include "fuel.h"
 
 extern Game * game;
+
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
 }
@@ -47,13 +48,13 @@ void myPlayer::objectSpawn()
     // create enemy
     time_t t;
     srand((unsigned) time(&t));
-    int rnd = rand() % 6;
+    int rnd = rand() % 10;
 
-    if (rnd == 0 || rnd == 3 || rnd == 5){
+    if (rnd == 0 || rnd == 3 || rnd == 5  || rnd == 6 || rnd == 7){
         Ship * ship = new Ship();
         scene()->addItem(ship);
     }
-    else if (rnd == 1 || rnd == 4){
+    else if (rnd == 1 || rnd == 4 || rnd == 8 || rnd == 9){
         Helicopter * helicopter = new Helicopter();
         scene()->addItem(helicopter);
     }

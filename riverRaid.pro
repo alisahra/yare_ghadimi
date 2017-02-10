@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     menu.cpp \
     fuel.cpp \
     certain.cpp \
-    setting.cpp
+    setting.cpp \
+    buy.cpp
 
 HEADERS  += game.h \
     enemy.h \
@@ -51,12 +52,15 @@ HEADERS  += game.h \
     menu.h \
     fuel.h \
     certain.h \
-    setting.h
+    setting.h \
+    buy.h \
+
 
 FORMS    += game.ui \
     certain.ui \
     menu.ui \
     setting.ui \
+    buy.ui \
 
 RESOURCES += \
     resource.qrc

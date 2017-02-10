@@ -17,7 +17,7 @@ Health::Health(QGraphicsItem *parent) : QGraphicsTextItem (parent) {
 void Health::increase()
 {
     health += 3;
-
+    healthIncreased(getHealth());
     // draw score
     setPlainText(QString("Health: ") + QString::number(health));
 }
