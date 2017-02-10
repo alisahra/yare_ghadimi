@@ -16,13 +16,18 @@
 #include "fuel.h"
 #include <QWidget>
 #include "puasepage.h"
-
+#include "gameover.h"
+Gameover * gameover;
 extern Game * game;
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
     setZValue(1000);
 }
-
+myPlayer::~myPlayer()
+{
+    gameover = new Gameover();
+    gameover->show();
+}
 void myPlayer::keyPressEvent(QKeyEvent *event)
 {
     //qDebug() << "YeS";

@@ -9,6 +9,7 @@ class myPlayer :public QObject,public QGraphicsPixmapItem{
 public:
     myPlayer(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
+    ~myPlayer();
 public slots:
     void objectSpawn();
     void twoWaysBgSpawn();
