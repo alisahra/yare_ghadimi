@@ -17,9 +17,13 @@ Health::Health(QGraphicsItem *parent) : QGraphicsTextItem (parent) {
 
 void Health::increase()
 {
-    if(health < 700){
+    if(health < 696){
         health += 4;
         healthIncreased(getHealth());
+        // draw score
+        setPlainText(QString("Health: ") + QString::number(health));
+    }else if(health < 700){
+        health = 700;
         // draw score
         setPlainText(QString("Health: ") + QString::number(health));
     }
