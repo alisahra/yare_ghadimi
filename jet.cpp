@@ -12,6 +12,7 @@ extern Game * game;
 
 Jet::Jet()
 {
+    setZValue(500);
     time_t t1;
     srand((unsigned) time(&t1));
     int randomPosition = rand() % 300;
