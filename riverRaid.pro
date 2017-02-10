@@ -37,7 +37,7 @@ SOURCES += main.cpp\
     exit1.cpp\
     puasepage.cpp\
     exit.cpp \
-    rect.cpp
+    rect.cpp \
 
 HEADERS  += game.h \
     enemy.h \
@@ -63,7 +63,7 @@ HEADERS  += game.h \
     exit1.h\
     puasepage.h\
     exit.h \
-    rect.h
+    rect.h \
 
 FORMS    += game.ui \
     certain.ui \
@@ -73,7 +73,7 @@ FORMS    += game.ui \
     gameover.ui \
     exit1.ui\
     puasepage.ui\
-    exit.ui
+    exit.ui \
 
 
 RESOURCES += \

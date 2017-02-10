@@ -94,15 +94,15 @@ Game::Game(){
     QTimer * t = new QTimer();
     QObject::connect(t,SIGNAL(timeout()),player,SLOT(thinBgLSpawn()));
     QObject::connect(t,SIGNAL(timeout()),player,SLOT(thinBgRSpawn()));
-    t->start(30000+(30*lev));
+    t->start(30000);
 
     QTimer * tw = new QTimer();
     QObject::connect(tw,SIGNAL(timeout()),player,SLOT(twoWaysBgSpawn()));
-    tw->start(20000-(1000*lev));
+    tw->start(20000);
 
     QTimer * enemyTimer = new QTimer();
     QObject::connect(enemyTimer,SIGNAL(timeout()),player,SLOT(objectSpawn()));
-    enemyTimer->start(2500-(100*lev));
+    enemyTimer->start(2500);
 
     QTimer * playerTimer = new QTimer();
     QObject::connect(playerTimer,SIGNAL(timeout()),player,SLOT(settingPixmap()));
@@ -112,7 +112,7 @@ Game::Game(){
 
     QTimer * levelT = new QTimer();
     QObject::connect(levelT,SIGNAL(timeout()),this,SLOT(incLevel()));
-    levelT->start(30000+(30*lev));
+    levelT->start(3000);
 
     // show the page
     show();

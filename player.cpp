@@ -18,6 +18,7 @@
 #include "puasepage.h"
 #include "gameover.h"
 #include "bridge.h"
+
 Gameover * gameover;
 extern Game * game;
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
@@ -97,8 +98,6 @@ void myPlayer::thinBgLSpawn()
 
 void myPlayer::thinBgRSpawn()
 {
-    Bridge * bridge = new Bridge();
-    scene()->addItem(bridge);
     thinBackGround * item = new thinBackGround(1);
     scene()->addItem(item);
 }

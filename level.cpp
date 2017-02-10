@@ -22,7 +22,7 @@ void Level::incLvl()
     QFile levelF("level.txt");
     QTextStream in(&levelF);
     if(!levelF.open(QFile::ReadOnly)){
-        qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+        qDebug() << "not open";
     }
     QString line = in.readLine();
     level = line.toInt();
@@ -33,7 +33,7 @@ void Level::incLvl()
     QFile levelF1("level.txt");
     levelF1.open(QIODevice::WriteOnly);
     if(!levelF.open(QFile::WriteOnly)){
-        qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+        qDebug() << "not open";
     }
     QTextStream out(&levelF1);
     out << level;

@@ -49,7 +49,6 @@ void shot::move()
         else if(typeid(*(collid_items[i])) == typeid(Helicopter)){game->score->increase(60); collid++;}
         else if(typeid(*(collid_items[i])) == typeid(Fuel)){game->score->increase(80); collid++;} //|| typeid(*(collid_items[i])) == typeid(Helicopter) || typeid(*(collid_items[i])) == typeid(Jet) || typeid(*(collid_items[i])) == typeid(Ship)) {
         else if(typeid(*(collid_items[i])) == typeid(Jet)){game->score->increase(100); collid++;}
-        else if(typeid(*(collid_items[i])) == typeid(Bridge)){game->score->increase(100); collid++;}
         else if(typeid(*(collid_items[i])) == typeid(twoWayBg))
         {
             scene()->removeItem(this);

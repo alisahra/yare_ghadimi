@@ -16,7 +16,7 @@ extern Game * game;
 Bridge::Bridge()
 {
         //set position
-        setPos(scene()->width()/2,-200);
+        setPos(300,-300);
 
         // draw pic
         setPixmap(QPixmap(":/pic/Picture/bridge.png"));
@@ -24,7 +24,7 @@ Bridge::Bridge()
         QFile levelF("level.txt");
         QTextStream in(&levelF);
         if(!levelF.open(QFile::ReadOnly)){
-            qDebug() << "RIIIIIIIIIDDDDDDIIIIIIIII";
+            qDebug() << "not open";
         }
         QString line = in.readAll();
         speed = line.toInt() + 3;
