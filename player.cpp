@@ -15,9 +15,9 @@
 #include "game.h"
 #include "fuel.h"
 #include <QWidget>
+#include "puasepage.h"
 
 extern Game * game;
-
 myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap(":/pic/Picture/raider.png"));
     setZValue(1000);
@@ -26,25 +26,36 @@ myPlayer::myPlayer(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {
 void myPlayer::keyPressEvent(QKeyEvent *event)
 {
     //qDebug() << "YeS";
-    if(event->key() == Qt::Key_Left || event->key() == Qt::Key_A){
+    if(event->key() == Qt::Key_Left || event->key() == Qt::Key_A)
+    {
         if(pos().x() > 0){
             setPixmap(QPixmap(":/pic/Picture/raider_mv.png"));
             setPos(x() - 15, y());
             qDebug() << "Going Left";
         }
-    }else if(event->key() == Qt::Key_Right || event->key() == Qt::Key_D){
+    }
+    else if(event->key() == Qt::Key_Right || event->key() == Qt::Key_D)
+    {
         if(pos().x() + this->pixmap().width() < scene()->width()){
             setPixmap(QPixmap(":/pic/Picture/raider_mv.png"));
             setPos(x() + 15, y());
             qDebug() << "Going Right";
         }
-    }else if((event->key() == Qt::Key_Space || event->key() == Qt::Key_W) && game->getSingelton()){
+    }
+    else if((event->key() == Qt::Key_Space || event->key() == Qt::Key_W) && game->getSingelton())
+    {
         // shot the enemy
         qDebug() << "Shot";
         shot * shoting = new shot();
         shoting->setPos(x() + this->pixmap().width()/2 - 1 ,y());
         scene()->addItem(shoting);
-    }else{
+    }
+    else if((event->key() == Qt::Key_Escape))
+    {
+        game->gamePuase();
+    }
+    else
+    {
         setPixmap(QPixmap(":/pic/Picture/raider.png"));
     }
 }

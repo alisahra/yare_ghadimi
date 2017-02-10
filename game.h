@@ -26,6 +26,7 @@ public:
     BackGround * bgR;
     void setSingelton(bool exist);
     bool getSingelton();
+<<<<<<< HEAD
     // getter/setter LEVEL
     void setLevel(int value);
     // getter/setter SPEED
@@ -36,6 +37,15 @@ public:
 
 private:
     Level * level;
+=======
+    void gamePuase();
+    Level * getLevel() const;
+    void setLevel(Level *value);
+    
+private:
+    Level * level;
+    Speed * speed;
+>>>>>>> master
     bool singelton;
     int creat;
     QTimer * timerBg;

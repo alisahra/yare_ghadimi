@@ -32,7 +32,11 @@ SOURCES += main.cpp\
     fuel.cpp \
     certain.cpp \
     setting.cpp \
-    buy.cpp
+    buy.cpp \
+    gameover.cpp \
+    exit1.cpp\
+    puasepage.cpp\
+    exit.cpp
 
 HEADERS  += game.h \
     enemy.h \
@@ -54,13 +58,20 @@ HEADERS  += game.h \
     certain.h \
     setting.h \
     buy.h \
-
+    gameover.h \
+    exit1.h\
+    puasepage.h\
+    exit.h
 
 FORMS    += game.ui \
     certain.ui \
     menu.ui \
     setting.ui \
     buy.ui \
+    gameover.ui \
+    exit1.ui\
+    puasepage.ui\
+    exit.ui
 
 
 RESOURCES += \

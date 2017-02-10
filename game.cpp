@@ -4,10 +4,15 @@
 #include <QDebug>
 #include "thinbackground.h"
 #include <QProgressBar>
+<<<<<<< HEAD
 //#include <fstream>
 //#include <iostream>
 //#include <string>
 #include <QFile>
+=======
+#include"puasepage.h"
+PuasePage * puasepage;
+>>>>>>> master
 
 //using namespace std;
 
@@ -115,6 +120,7 @@ bool Game::getSingelton()
     return this->singelton;
 }
 
+<<<<<<< HEAD
 void Game::setLevel(int value)
 {
     level->setLvl(value);
@@ -130,3 +136,19 @@ void Game::incLevel()
     level->incLvl();
 }
 
+=======
+Level *Game::getLevel() const
+{
+    return level;
+}
+
+void Game::setLevel(Level *value)
+{
+    level = value;
+}
+void Game::gamePuase()
+{
+    puasepage = new PuasePage();
+    puasepage->show();
+}
+>>>>>>> master
